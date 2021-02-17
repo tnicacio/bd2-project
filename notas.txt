@@ -1,0 +1,4 @@
+Uma vez registrada a venda, os seus itens não podem ser modificados.
+
+plpgsql-cursor:
+https://www.postgresqltutorial.com/plpgsql-cursor/
