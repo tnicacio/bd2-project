@@ -6,7 +6,13 @@ declare
 
 begin
 
-	if (new.usuario_id is not null) then
+	if (new.usuario_id is not null)
+		and (
+				coalesce(old.preco, -1) <> coalesce(new.preco, -1)
+			or	coalesce(old.qtd_estoque, -1) <> coalesce(new.qtd_estoque, -1)
+			or	coalesce(old.descricao,'xpto') <> coalesce(new.descricao,'xpto')
+			)
+				then
 	
 		insert into log_movimentos (data,
 									descricao,

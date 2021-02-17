@@ -21,9 +21,9 @@ set descricao = 'Pizza congelada',
 where id = 1;
 
 insert into venda(data, pagto_prazo, numero_parcelas, status, usuario_id) values
-('25/02/2021', false, 0, 'O', 2),
-('25/02/2021', 0, 0, 'O', 3),
-('25/02/2021', 2, 'O', 2);
+('25/02/2021', false, null, null, 2),
+('25/02/2021', false, null, null, 3),
+('25/02/2021', true, 3, null, 2);
 
 /*
 O preço unitário será inserido na tabela de itens automaticamente, caso a transação seja válida.
@@ -34,5 +34,16 @@ insert into itens(id_produto, id_venda, quantidade) values
 (2, 2, 4),
 (1, 3, 4);
 
+/*
+Uma venda é criada com o status em aberto. Após o registro de venda, ela pode ser confirmada ou cancelada. Se a venda for finalizada
+deve ser atualizado o estoque dos itens, caso seja cancelada deve ser estornado a quantidade dos itens para o estoque;
+
+Status:
+O = confirmada,
+X = cancelada}
+*/
+update	venda
+set		status = 'O'
+where	id = 1;
 
 

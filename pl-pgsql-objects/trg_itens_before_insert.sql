@@ -28,6 +28,8 @@ if ((qtde_estoque_w - new.quantidade) >= estoque_minimo_w) then
 			qtd_estoque = qtd_estoque - new.quantidade
 	where 	produto.id = new.id_produto;
 	
+	RAISE NOTICE 'Atualizando produto id = %', new.id_produto;
+	
 	return NEW;
 	
 end if;
