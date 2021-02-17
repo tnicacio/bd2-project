@@ -16,11 +16,12 @@ cur_produto cursor (id_p integer)
 
 begin
 
-	if (coalesce(new.status,'xpto') = coalesce(old.status,'xpto')) then
+	if 	(new.status is null) or
+		(coalesce(new.status,'xpto') = coalesce(old.status,'xpto')) then
 		return NULL;
 	end if;
 
-	if (coalesce(new.status,'xpto') = 'O') then -- Venda confirmada
+	if (new.status = 'O') then -- Venda confirmada
 		
 		open cur_produto(new.id);
 		loop
@@ -41,7 +42,7 @@ begin
 		
 		return NEW;
 		
-	elsif (coalesce(new.status,'xpto') = 'X') then	-- Venda cancelada
+	elsif (new.status = 'X') then	-- Venda cancelada
 	
 		open cur_produto(new.id);
 		
