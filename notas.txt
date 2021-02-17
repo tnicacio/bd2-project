@@ -2,3 +2,6 @@ Uma vez registrada a venda, os seus itens não podem ser modificados.
 
 plpgsql-cursor:
 https://www.postgresqltutorial.com/plpgsql-cursor/
+
+execute format:
+https://stackoverflow.com/questions/14065271/how-to-use-execute-format-using-in-postgres-function
