@@ -10,10 +10,10 @@ monthly_payment_w	itens.preco_unitario%type;
 
 begin
 
-select 	coalesce(sum(quantidade * preco_unitario), 0)
+select 	sum(quantidade * preco_unitario)
 into	total_w
 from	itens
-where	id_venda = venda_id_p;
+where	venda_id = venda_id_p;
 
 select	coalesce(numero_parcelas, 0)
 into	num_parcelas_w
@@ -29,7 +29,7 @@ monthly_payment_w = total_w/num_parcelas_w;
 month_counter := 0;
 loop
 
-	insert into parcelamento(id_venda, valor, data_vencimento)
+	insert into parcelamento(venda_id, valor, data_vencimento)
 	values(venda_id_p, monthly_payment_w, CURRENT_DATE + (month_counter * interval_p));
 
 	month_counter = month_counter + 1;

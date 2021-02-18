@@ -28,7 +28,7 @@ insert into venda(data, pagto_prazo, numero_parcelas, status, usuario_id) values
 /*
 O preço unitário será inserido na tabela de itens automaticamente, caso a transação seja válida.
 */
-insert into itens(id_produto, id_venda, quantidade) values
+insert into itens(produto_id, venda_id, quantidade) values
 (1, 1, 2),
 (3, 1, 3),
 (2, 2, 4),

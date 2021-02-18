@@ -18,31 +18,31 @@ usuario_id		int4 not null
 );
 
 create table itens(
-id_produto		int4 not null,
-id_venda		int4 not null,
+produto_id		int4 not null,
+venda_id		int4 not null,
 quantidade		decimal(6,2),
 preco_unitario	decimal(6,2),
-primary key(id_produto, id_venda)
+primary key(produto_id, venda_id)
 );
 
 alter table if exists itens 
 add constraint fk_itens_produto
-foreign key (id_produto) references produto;
+foreign key (produto_id) references produto;
 
 alter table if exists itens
 add constraint fk_itens_venda
-foreign key (id_venda) references venda;
+foreign key (venda_id) references venda;
 
 create table parcelamento(
 id				serial primary key,
-id_venda		int4 not null,
+venda_id		int4 not null,
 valor			decimal(6,2),
 data_vencimento	date
 );
 
 alter table if exists parcelamento
 add constraint fk_parcelamento_venda
-foreign key (id_venda) references venda;
+foreign key (venda_id) references venda;
 
 create table log_movimentos(
 id				serial primary key,

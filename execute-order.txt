@@ -1,0 +1,6 @@
+1. tables
+2. fnc		(functions)
+3. prc  	(procedures)
+4. trf	 	(trigger functions)
+5. trg		(triggers)
+
