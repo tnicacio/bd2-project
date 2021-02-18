@@ -8,7 +8,6 @@ id_produto_w		itens.id_produto%type;
 quantidade_w		itens.quantidade%type;
 
 month_counter		integer;
-num_parcelas_w		venda.numero_parcelas%type;
 total_w				itens.preco_unitario%type;
 monthly_payment_w	itens.preco_unitario%type;
 
@@ -45,27 +44,9 @@ begin
 		end loop;
 		close cur_produto;
 		
-		if (old.pagto_prazo)
-			and (coalesce(old.numero_parcelas, new.numero_parcelas) > 0)then
+		if (old.pagto_prazo) and (old.numero_parcelas > 0) then
 			
-			num_parcelas_w := coalesce(old.numero_parcelas, new.numero_parcelas);
-							
-			select 	sum(quantidade * preco_unitario)
-			into	total_w
-			from	itens
-			where	id_venda = new.id;
-			
-			monthly_payment_w = total_w/num_parcelas_w;
-			
-			month_counter := 0;
-			loop
-			
-				insert into parcelamento(id_venda, valor, data_vencimento)
-				values(new.id, monthly_payment_w, CURRENT_DATE + (month_counter*30));
-				
-				month_counter = month_counter + 1;
-				exit when month_counter = num_parcelas_w;
-			end loop;
+			call prc_generate_installments(new.id,'30 days');
 		
 		end if;
 		
