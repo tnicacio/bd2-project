@@ -39,7 +39,7 @@ begin
 			set		qtde_reservada = qtde_reservada - quantidade_w
 			where	p.id =  id_produto_w;
 		
-			RAISE NOTICE 'updatin qtde_reservada value of product id = %',id_produto_w;
+			RAISE NOTICE 'updating qtde_reservada from product id = %',id_produto_w;
 		
 		end loop;
 		close cur_produto;

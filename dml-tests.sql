@@ -31,8 +31,12 @@ O preço unitário será inserido na tabela de itens automaticamente, caso a tra
 insert into itens(produto_id, venda_id, quantidade) values
 (1, 1, 2),
 (3, 1, 3),
-(2, 2, 4),
+(2, 3, 2),
 (1, 3, 4);
+
+update 	venda
+set 	status = 'O'
+where 	id = 3;
 
 /*
 Uma venda é criada com o status em aberto. Após o registro de venda, ela pode ser confirmada ou cancelada. Se a venda for finalizada
