@@ -1,6 +1,8 @@
-1. tables
-2. fnc		(functions)
-3. prc  	(procedures)
-4. trf	 	(trigger functions)
-5. trg		(triggers)
+1. create/alter tables
+2. pl-pgsql-objects
+ 2.1 views		(v_)
+ 2.2 functions		(fnc_)
+ 2.3 procedures		(prc_)
+ 2.4 trigger functions 	(trf_)
+ 2.5 triggers		(trg_)
 

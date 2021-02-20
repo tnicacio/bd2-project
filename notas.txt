@@ -5,3 +5,6 @@ https://www.postgresqltutorial.com/plpgsql-cursor/
 
 execute format:
 https://stackoverflow.com/questions/14065271/how-to-use-execute-format-using-in-postgres-function
+----
+
+https://www.postgresql.org/docs/9.2/plpgsql-trigger.html
