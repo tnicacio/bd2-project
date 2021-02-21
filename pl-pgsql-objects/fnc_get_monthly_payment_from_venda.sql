@@ -17,7 +17,7 @@ begin
 		return payment_w;
 	end if;
 
-	payment_w := total_w/num_parcelas_w;;
+	payment_w := total_w/num_parcelas_w;
 	return payment_w;
 end;
-$fnc_get_monthly_payment_from_venda$
+$fnc_get_monthly_payment_from_venda$;

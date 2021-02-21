@@ -16,4 +16,4 @@ begin
 	return num_parcelas_w;
 
 end;
-$fnc_get_nr_parcelas_from_venda$
+$fnc_get_nr_parcelas_from_venda$;

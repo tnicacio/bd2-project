@@ -1,7 +1,7 @@
-create or replace function getTotalFromVenda(venda_id_p integer)
+create or replace function fnc_get_total_from_venda(venda_id_p integer)
 returns decimal(6,2)
 language plpgsql
-as $getTotalFromVenda$
+as $fnc_get_total_from_venda$
 
 declare
 sumTotal decimal(6,2) := 0;
@@ -15,4 +15,4 @@ begin
 	
 	return sumTotal;
 end;
-$getTotalFromVenda$
+$fnc_get_total_from_venda$;

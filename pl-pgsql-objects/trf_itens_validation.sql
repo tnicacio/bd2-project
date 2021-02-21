@@ -39,7 +39,7 @@ if ((qt_estoque_w - new.qt_produto) >= qt_estoque_minimo_w) then
 			qt_estoque = new_qt_estoque_w
 	where 	produto.id = new.produto_id;
 	
-	call prc_log_movimentos(new.produto_id, new.venda_id, 'desc', qt_estoque_w, new_qt_estoque_w, qt_reservada_w, new_qt_reservada_w, fnc_get_usuario_from_venda(new.venda_id));
+	call prc_log_movimentos(new.produto_id, new.venda_id, 'reserving items', qt_estoque_w, new_qt_estoque_w, qt_reservada_w, new_qt_reservada_w, fnc_get_usuario_from_venda(new.venda_id));
 	
 	return NEW;	
 	

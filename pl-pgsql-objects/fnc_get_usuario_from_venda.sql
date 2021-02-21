@@ -1,7 +1,7 @@
-create or replace function get_usuario_from_venda(venda_id_p integer)
+create or replace function fnc_get_usuario_from_venda(venda_id_p integer)
 returns integer
 language plpgsql
-as $get_usuario_from_venda$
+as $fnc_get_usuario_from_venda$
 
 declare
 usuario_id_w integer;
@@ -14,4 +14,4 @@ begin
 	
 	return usuario_id_w;
 end;
-$get_usuario_from_venda$;
+$fnc_get_usuario_from_venda$;
