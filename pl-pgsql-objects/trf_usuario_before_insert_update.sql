@@ -48,7 +48,7 @@ begin
 		raise exception 'User name cannot be null';
 	end if;
 	
-	if (new.cargo is null) or (new.cargo = 0) then
+	if (new.cargo is null) then
 		new.cargo = 2;
 	end if;
 	
