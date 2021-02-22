@@ -37,8 +37,7 @@ begin
 	end if;
 		
 	if (new.id is null) then
-		raise exception 'User id is null'
-			using hint = 'Cannot register a product without specify it''s responsible user';
+		raise exception 'User id is null';
 	end if;
 	
 	if (new.senha is null) then
@@ -49,7 +48,7 @@ begin
 		raise exception 'User name cannot be null';
 	end if;
 	
-	if (new.cargo is null) then
+	if (new.cargo is null) or (new.cargo = 0) then
 		new.cargo = 2;
 	end if;
 	
