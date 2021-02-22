@@ -1,6 +1,6 @@
-create or replace function trf_produto_before_insert_update() 
+create or replace function trf_usuario_before_insert_update() 
 returns trigger as 
-$trf_produto_before_insert_update$
+$trf_usuario_before_insert_update$
 
 declare
 
@@ -36,11 +36,23 @@ begin
 			
 	end if;
 		
-	if (new.usuario_id is null) then
+	if (new.id is null) then
 		raise exception 'User id is null'
 			using hint = 'Cannot register a product without specify it''s responsible user';
 	end if;
 	
+	if (new.senha is null) then
+		raise exception 'Password cannot be null';
+	end if;
+	
+	if (new.nome is null) then
+		raise exception 'User name cannot be null';
+	end if;
+	
+	if (new.cargo is null) then
+		new.cargo = 2;
+	end if;
+	
 	return NEW; 
 end;	
-$trf_produto_before_insert_update$ language plpgsql;
+$trf_usuario_before_insert_update$ language plpgsql;

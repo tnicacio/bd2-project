@@ -1,19 +1,26 @@
 create table usuario(
 id serial primary key,
+dt_atualizacao timestamp,
+image_uri varchar(255),
 nome varchar(255),
 email varchar(255),
 senha varchar(255),
-cargo integer
+cargo integer,
+ie_ativo boolean,
+dt_inativacao timestamp
 );
 
 create table produto(
 id serial primary key,
 descricao varchar(255),
+image_uri varchar(255),
 preco decimal(6,2),
 qt_estoque decimal(6,2),
 qt_estoque_minimo decimal(6,2),
 qt_reservada decimal(6,2),
 dt_atualizacao timestamp,
+ie_ativo boolean,
+dt_inativacao timestamp,
 usuario_id int4 not null
 );
 
@@ -46,10 +53,13 @@ create table produto_audit(
 id serial primary key,
 produto_id int4 not null,
 usuario_id int4 not null,
+image_uri varchar(255),
 dt_atualizacao timestamp,
 descricao varchar(255),
 preco decimal(6,2),
-qt_estoque_minimo decimal(6,2)
+qt_estoque_minimo decimal(6,2),
+ie_ativo boolean,
+dt_inativacao timestamp
 );
 
 create table log_movimentos(
