@@ -15,6 +15,7 @@ select  p.id								produto_id,
 		coalesce(v.is_pagto_prazo, false)	venda_pagto_prazo,
 		coalesce(v.nr_parcelas, 0)			venda_numero_parcelas,
 		v.status							venda_status,
+		v.endereco							venda_endereco,
 		v.usuario_id 						usuario_venda
 from	produto p,
 		venda v,

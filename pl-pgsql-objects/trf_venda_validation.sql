@@ -8,6 +8,10 @@ begin
 		RAISE EXCEPTION 'User id cannot be null';
 	end if;
 	
+	if (new.endereco is null) then
+		RAISE EXCEPTION 'Adress cannot be null';
+	end if;
+
 	if (new.is_pagto_prazo) and (coalesce(new.nr_parcelas, 0) = 0) then
 		RAISE EXCEPTION 'An installment payment order must have more than 0 installments';
 	end if;

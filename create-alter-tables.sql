@@ -27,6 +27,7 @@ usuario_id int4 not null
 create table venda(
 id serial primary key,
 dt_venda timestamp,
+endereco varchar(255),
 is_pagto_prazo boolean,
 nr_parcelas int4,
 status char,
